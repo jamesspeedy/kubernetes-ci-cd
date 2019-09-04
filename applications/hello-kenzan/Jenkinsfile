@@ -15,11 +15,11 @@ node {
 
     stage "Build"
     
-        sh "docker build -t ${imageName} part1/hello-kenzan"
+        sh "docker build -t 127.0.0.1:30400/hello-kenzan:latest part1/hello-kenzan"
     
     stage "Push"
 
-        sh "docker push ${imageName}"
+        sh "docker push 127.0.0.1:30400/hello-kenzan:latest"
 
     stage "Deploy"
 
