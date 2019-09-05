@@ -27,5 +27,4 @@ node {
     stage "Test"
 
         sh "curl -sL -w "%{http_code}\\n" "http://204.212.162.26:31683/" -o /dev/null --connect-timeout 3 --max-time 5 | grep 200"    
-
 }
