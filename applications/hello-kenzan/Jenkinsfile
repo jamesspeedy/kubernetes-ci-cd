@@ -24,4 +24,9 @@ node {
     stage "Deploy"
 
         sh "sed 's#__IMAGE__#'$BUILDIMG'#' part1/hello-kenzan/k8s/deployment.yaml | kubectl apply -f -"
+
+    stage "Test"
+
+        sh "curl -sL -w "%{http_code}\\n" "http://204.212.162.26:31683/" -o /dev/null --connect-timeout 3 --max-time 5 | grep 200"
+
 }
