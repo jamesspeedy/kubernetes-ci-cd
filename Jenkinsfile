@@ -24,8 +24,11 @@ node {
 
         kubernetesDeploy configs: "applications/${appName}/k8s/*.yaml", kubeconfigId: 'kenzan_kubeconfig'
     
+    stage "Rest"
+    
+        sh "sleep 5"
+    
     stage "Test"
 
-        sh "hostname"
         sh "curl -k http://204.212.162.26:31683/ --connect-timeout 3 --max-time 5 | grep Speedy"    
 }
